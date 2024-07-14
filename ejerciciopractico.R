@@ -1,3 +1,8 @@
+#Instalamos los paquetes requeridos
+install.packages("dplyr")
+install.packages("tidyverse")
+install.packages("ggplot2")
+
 # Importamos las librerías 
 library("dplyr")
 library("tidyr")
@@ -96,4 +101,4 @@ chart <- ggplot(df_species, aes(x=reorder(Species, -Quantity), y=Quantity, fill=
   xlab("Species")
 
 # Finalmente, guardamos nuestro gráfico como un archivo svg
-ggsave("plot.svg", plot = chart, width = 8, height = 6)
+ggsave("plot.jpeg", plot = chart, width = 8, height = 6)
