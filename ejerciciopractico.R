@@ -95,10 +95,11 @@ df_species <- df_species |>
 
 # A continuación, creamos nuestro gráfico con ggplot
 chart <- ggplot(df_species, aes(x=reorder(Species, -Quantity), y=Quantity, fill=Gender)) + 
-  geom_bar(stat = "identity", position = position_dodge()) + 
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
+  geom_bar(stat = "identity", position = position_dodge()) + # Agregando configuración de barras apiladas como position_dodge
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) + # Cambiando orientación de bases de x a vertical 
+  # Agregamos un número a las barras que indique la cantidad total por cada barra
   geom_text(aes(Species, label = Quantity), color = "blue", size = 5, vjust = -0.15, position = position_dodge(width = 0.9)) +
-  xlab("Species")
+  xlab("Species") # Cambiamos el nombre del eje x a "Species"
 
 # Finalmente, guardamos nuestro gráfico como un archivo svg
-ggsave("plot.jpeg", plot = chart, width = 8, height = 6)
+ggsave("src/plot.jpeg", plot = chart, width = 8, height = 6)
